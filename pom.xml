@@ -1,8 +1,18 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <scm>
         <developerConnection>scm:git:git@github.com:vogxn/die-with-dignity-plugin.git</developerConnection>
         <tag>v1.0-SNAPSHOT</tag>
-  </scm>
+    </scm>
+    <distributionManagement>
+        <repository>
+            <uniqueVersion>false</uniqueVersion>
+            <id>die-with-dignity-plugin</id>
+            <name>Die With Dignity Elasticsearch Plugin</name>
+            <url>git@github.com:vogxn/die-with-dignity-plugin.git</url>
+            <layout>default</layout>
+        </repository>
+    </distributionManagement>
     <modelVersion>4.0.0</modelVersion>
     <name>DieWithDignityPlugin</name>
     <groupId>org.elasticsearch.plugin</groupId>
