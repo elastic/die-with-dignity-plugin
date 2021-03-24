@@ -23,15 +23,25 @@ import org.elasticsearch.client.node.NodeClient;
 import org.elasticsearch.common.settings.Settings;
 import org.elasticsearch.rest.BaseRestHandler;
 import org.elasticsearch.rest.RestController;
+import org.elasticsearch.rest.RestHandler;
 import org.elasticsearch.rest.RestRequest;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class RestDieWithDignityAction extends BaseRestHandler {
 
-    RestDieWithDignityAction(final Settings settings, final RestController restController) {
-        super(settings);
-        restController.registerHandler(RestRequest.Method.GET, "/_die_with_dignity", this);
+    RestDieWithDignityAction() {
+        super();
+    }
+
+    @Override
+    public List<RestHandler.Route> routes() {
+        RestHandler.Route route = new RestHandler.Route(RestRequest.Method.GET, "/_die_with_dignity");
+        List<RestHandler.Route> routes = new ArrayList<RestHandler.Route>();
+        routes.add(route);
+        return routes;
     }
 
     @Override
