@@ -51,7 +51,9 @@ public class RestDieWithDignityAction extends BaseRestHandler {
 
     @Override
     protected RestChannelConsumer prepareRequest(RestRequest request, NodeClient client) throws IOException {
+        // This should throw an OOM which generates a heap dump
+        long[] allocation = new long[Integer.MAX_VALUE];
+        // If that doesn't work, manually throw an OOM. This won't generate a heap dump
         throw new OutOfMemoryError("die with dignity");
     }
-
 }
